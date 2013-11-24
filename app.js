@@ -29,6 +29,13 @@ ddoc.views = {
       if (doc.created_at && doc.title && doc.url) emit(doc.created_at, doc);
     }
   },
+  unverified: {
+    map: function(doc) {
+      if ('created_at' in doc && 'title' in doc && 'url' in doc) {
+        if (doc.verified === false) emit(doc.created_at, doc.title);
+      }
+    }
+  }
 };
 
 ddoc.validate_doc_update = function (newDoc, oldDoc, userCtx) {
