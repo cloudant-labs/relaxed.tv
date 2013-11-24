@@ -11,6 +11,39 @@
     hgroup, menu, nav, section { display: block; }
   </style>
   <link rel="stylesheet" href="style/custom.css" type="text/css" media="screen, projection" />
+  <style type="text/css">
+    /* CouchDB Conf 2013 Vancouver, CA styles */
+    body {background: #033}
+    .header {
+      background: #033 url('images/couchdb_conf_2013.png') top left no-repeat;
+      height: 192px;
+    }
+    .video_wrapper {
+      padding: 0;
+      background: #033;
+    }
+    .video_container {
+      color: white;
+      background: #033;
+    }
+    .video_container h2,
+    .video_container h3 {
+      color: white;
+    }
+    .video_container p {
+      text-shadow: none;
+    }
+    .video_container .container {
+      padding-top: 1em;
+    }
+    .videos {
+      width: 30%;
+      padding: 0;
+    }
+    .video {
+      min-width: 560px;
+    }
+  </style>
   <link rel="stylesheet" href="style/print.css" type="text/css" media="print" />
   <!--[if lt IE 8]>
     <link rel="stylesheet" href="style/ie.css" type="text/css" media="screen, projection" />
@@ -29,10 +62,6 @@
 </head> 
 <body id="body" class="body">
   <div class="header">
-    <div class="container">
-      <p class="claim">sit back, relax and learn about couchdb</p>
-      <img class="logo" src="images/relaxedtvlogo.png"></img>
-    </div>
   </div>
 
   <div class="video_wrapper">
@@ -46,8 +75,6 @@
            </ul>
            <p>
              <a href="#upload">Add a video!</a>
-             |
-             <a href="http://max.ic.ht/relaxedtv/_design/recline/_rewrite">Browse video API</a>
            </p>
          </div>
 
@@ -65,23 +92,23 @@
   	</div>
   </div>
   
-  <span class="pageinfo">Design thanks to <a href="http://www.kristinaschneider.com">Kriesse</a>. <a href="http://github.com/maxogden/relaxed.tv">Fork the source code</a></span>
+  <span class="pageinfo"><a href="http://github.com/maxogden/relaxed.tv">Fork the source code</a></span>
   
   <script type='text/mustache' class="videoListTemplate">
     {{#videos}}
-      <li><a href="#video/{{_id}}" data-id="{{_id}}" class="videoListItem">&#x261E; {{title}}</a></li>
+      <li><a href="#video/{{_id}}" data-id="{{_id}}" class="videoListItem">{{title}}</a></li>
     {{/videos}}
     </ul>
 	</script>
 	
 	<script type='text/mustache' class="youtubeTemplate">
   	<h3>{{title}}</h3>
-    <iframe width="425" height="349" src="http://www.youtube.com/embed/{{videoid}}" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="http://www.youtube.com/embed/{{videoid}}" frameborder="0" allowfullscreen></iframe>
 	</script>
 	
 	<script type='text/mustache' class="vimeoTemplate">
 	  <h3>{{title}}</h3>
-    <iframe src="http://player.vimeo.com/video/{{videoid}}?title=1&byline=1&portrait=1&" width="425" height="349" frameborder="0"></iframe>
+    <iframe src="http://player.vimeo.com/video/{{videoid}}?title=1&byline=1&portrait=1&" width="560" height="315" frameborder="0"></iframe>
 	</script>
 	
 	<script class="uploadTemplate" type="text/mustache">
